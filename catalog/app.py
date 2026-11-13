@@ -106,5 +106,35 @@ def update_book(book_id):
     return jsonify(dict(book))
 
 
+@app.route("/books/<int:book_id>/purchase", methods=["POST"])
+def purchase_book(book_id):
+    with get_connection() as connection:
+        cursor = connection.execute("""
+            UPDATE books
+            SET quantity = quantity - 1
+            WHERE id = ? AND quantity > 0
+        """, (book_id,))
+
+        if cursor.rowcount == 0:
+            book = connection.execute(
+                "SELECT id FROM books WHERE id = ?",
+                (book_id,)
+            ).fetchone()
+
+            if book is None:
+                return jsonify({"error": "Book not found"}), 404
+
+            return jsonify({
+                "error": "Book is out of stock"
+            }), 409
+
+        book = connection.execute(
+            "SELECT * FROM books WHERE id = ?",
+            (book_id,)
+        ).fetchone()
+
+    return jsonify(dict(book)), 200
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5001)

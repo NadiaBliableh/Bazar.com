@@ -239,6 +239,34 @@ Detailed test results are available in:
 
 `docs/test-results.md`
 
+
+### Automated Integration Tests
+
+The project includes automated integration tests
+in `tests/integration_test.py`.
+
+After starting all services, run the tests from
+the project root:
+
+```powershell
+docker run --rm --network bazarcom_default -v "${PWD}/tests:/tests:ro" python:3.11-slim python /tests/integration_test.py
+```
+
+The test suite checks search, book information,
+invalid requests, stock validation, concurrent
+purchases, and order recording.
+
+Latest test execution:
+
+- Passed: 10
+- Failed: 0
+
+**Note:** The concurrency test creates two real
+orders in the SQLite database. It restores the
+original book quantity but does not delete the
+newly recorded orders.
+
+
 ## 11. Stopping the Application
 
 Stop and remove containers:
@@ -259,6 +287,13 @@ Persistent Docker volumes are retained.
   recording may lead to inconsistent data.
 - Extensive load and failure-recovery testing
   has not been performed.
+- If order recording fails after inventory is
+  decremented, the Order Service attempts to
+  restore stock through the Catalog Service.
+  This is best-effort compensation, not a
+  guaranteed distributed transaction.
+- The compensation failure scenario has not
+  been directly tested.
 
 ## 13. Future Improvements
 

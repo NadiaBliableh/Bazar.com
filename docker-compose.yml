@@ -9,6 +9,12 @@ services:
     volumes:
       - catalog_data:/data
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5001/', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
   order:
     build: ./order
@@ -20,8 +26,15 @@ services:
     volumes:
       - order_data:/data
     depends_on:
-      - catalog
+      catalog:
+        condition: service_healthy
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5002/', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
   frontend:
     build: ./frontend
@@ -31,9 +44,17 @@ services:
       CATALOG_URL: http://catalog:5001
       ORDER_URL: http://order:5002
     depends_on:
-      - catalog
-      - order
+      catalog:
+        condition: service_healthy
+      order:
+        condition: service_healthy
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
 volumes:
   catalog_data:

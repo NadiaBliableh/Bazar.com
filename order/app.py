@@ -50,17 +50,47 @@ def purchase_book():
 
     book = response.json()
 
-    with get_connection() as connection:
-        cursor = connection.execute("""
-            INSERT INTO orders (book_id, book_title, price)
-            VALUES (?, ?, ?)
-        """, (
-            book["id"],
-            book["title"],
-            book["price"]
-        ))
+    
+    try:
+        with get_connection() as connection:
+            cursor = connection.execute("""
+                INSERT INTO orders (book_id, book_title, price)
+                VALUES (?, ?, ?)
+            """, (
+                book["id"],
+                book["title"],
+                book["price"]
+            ))
 
-        order_id = cursor.lastrowid
+            order_id = cursor.lastrowid
+
+    except Exception:
+        # Attempt to restore stock if saving the order fails.
+        try:
+            restore_response = requests.patch(
+                f"{CATALOG_URL}/books/{book_id}/stock",
+                json={"delta": 1},
+                timeout=5
+            )
+
+            if restore_response.status_code != 200:
+                app.logger.error(
+                    "Stock restoration failed for book %s",
+                    book_id
+                )
+
+        except requests.RequestException:
+            app.logger.error(
+                "Catalog unavailable during stock restoration "
+                "for book %s",
+                book_id
+            )
+
+        return jsonify({
+            "error": "Order could not be saved",
+            "message": "Stock restoration was attempted"
+        }), 500
+
 
     print(f"bought book {book['title']}")
 

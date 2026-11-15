@@ -136,5 +136,66 @@ def purchase_book(book_id):
     return jsonify(dict(book)), 200
 
 
+@app.route("/books/<int:book_id>/stock", methods=["PATCH"])
+def adjust_stock(book_id):
+    """
+    Atomically increase or decrease book stock.
+    Prevents the quantity from becoming negative.
+    """
+
+    data = request.get_json(silent=True)
+
+    if not isinstance(data, dict):
+        return jsonify({
+            "error": "JSON data is required"
+        }), 400
+
+    delta = data.get("delta")
+
+    if (
+        isinstance(delta, bool)
+        or not isinstance(delta, int)
+        or delta == 0
+    ):
+        return jsonify({
+            "error": "delta must be a non-zero integer"
+        }), 400
+
+    with get_connection() as connection:
+        cursor = connection.execute(
+            """
+            UPDATE books
+            SET quantity = quantity + ?
+            WHERE id = ?
+              AND quantity + ? >= 0
+            """,
+            (delta, book_id, delta)
+        )
+
+        if cursor.rowcount == 0:
+            book = connection.execute(
+                "SELECT id FROM books WHERE id = ?",
+                (book_id,)
+            ).fetchone()
+
+            if book is None:
+                return jsonify({
+                    "error": "Book not found"
+                }), 404
+
+            return jsonify({
+                "error": "Insufficient stock"
+            }), 409
+
+        book = connection.execute(
+            "SELECT * FROM books WHERE id = ?",
+            (book_id,)
+        ).fetchone()
+
+    return jsonify(dict(book)), 200
+
+
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5001)

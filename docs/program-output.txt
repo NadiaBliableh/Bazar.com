@@ -1,0 +1,167 @@
+=== SEARCH RESULTS ===
+
+
+id       : 1
+price    : 10.0
+quantity : 9
+subject  : Distributed Systems
+title    : How to get a good grade in DOS in 40 minutes a day
+
+id       : 2
+price    : 12.0
+quantity : 9
+subject  : Distributed Systems
+title    : RPCs for Noobs
+
+
+
+
+
+=== BOOK INFORMATION ===
+
+
+id       : 2
+price    : 12.0
+quantity : 9
+subject  : Distributed Systems
+title    : RPCs for Noobs
+
+
+
+
+
+=== PURCHASE OUTPUT ===
+
+
+book_id            : 1
+book_title         : How to get a good grade in DOS in 40 minutes a day
+message            : bought book How to get a good grade in DOS in 40 minutes a day
+order_id           : 7
+price              : 10.0
+remaining_quantity : 8
+
+
+
+
+
+=== APPLICATION LOGS ===
+frontend-1  | Search results for: Distributed Systems
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:11:12] "GET / HTTP/1.1" 200 -
+frontend-1  | ID: 1 | Title: How to get a good grade in DOS in 40 minutes a day | Price: $10.0 | Quantity: 9
+frontend-1  | ID: 2 | Title: RPCs for Noobs | Price: $12.0 | Quantity: 9
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:11:23] "GET / HTTP/1.1" 200 -
+frontend-1  | 172.20.0.1 - - [15/Nov/2026 19:12:58] "GET /search/Distributed%20Systems HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:11:33] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:11:43] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:11:53] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:12:03] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:12:13] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:12:23] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:12:34] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:12:44] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:12:54] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:13:04] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:13:14] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:13:24] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:13:34] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:13:44] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:13:55] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:14:05] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:14:15] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:14:25] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:14:35] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:14:45] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:14:55] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:15:05] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:15:15] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:15:26] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:15:36] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:15:46] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:15:56] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:16:06] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:16:16] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:16:26] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:16:36] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:16:47] "GET / HTTP/1.1" 200 -
+order-1  | 172.20.0.4 - - [15/Nov/2026 19:16:47] "[35m[1mPOST /orders HTTP/1.1[0m" 201 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:16:57] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:17:07] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:17:17] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:17:27] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:17:37] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:17:47] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:12:59] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:17:57] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:18:08] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:13:09] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:18:18] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:18:28] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:18:38] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:18:48] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:13:20] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:18:58] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:19:08] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:13:30] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:13:40] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:19:18] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:13:50] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:14:00] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:19:29] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:19:39] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:14:10] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:14:20] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:19:49] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:14:30] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:14:41] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:19:59] "GET / HTTP/1.1" 200 -
+frontend-1  | 
+frontend-1  | Book information for ID 2:
+frontend-1  | Title: RPCs for Noobs
+frontend-1  | Subject: Distributed Systems
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:20:09] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:20:19] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:20:29] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:20:39] "GET / HTTP/1.1" 200 -
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:20:49] "GET / HTTP/1.1" 200 -
+frontend-1  | Price: $12.0
+order-1  | 127.0.0.1 - - [15/Nov/2026 19:21:00] "GET / HTTP/1.1" 200 -
+frontend-1  | Quantity: 9
+frontend-1  | 172.20.0.1 - - [15/Nov/2026 19:14:49] "GET /info/2 HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:14:51] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:15:01] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:15:11] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:15:21] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:15:31] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:15:41] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:15:51] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:16:02] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:16:12] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:16:22] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:16:32] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:16:42] "GET / HTTP/1.1" 200 -
+frontend-1  | 172.20.0.1 - - [15/Nov/2026 19:16:47] "[35m[1mPOST /purchase/1 HTTP/1.1[0m" 201 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:16:52] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:17:02] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:17:12] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:17:23] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:17:33] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:17:43] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:17:53] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:18:03] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:18:13] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:18:23] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:18:33] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:18:43] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:18:54] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:19:04] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:19:14] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:19:24] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:19:34] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:19:44] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:19:54] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:20:04] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:20:15] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:20:25] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:20:35] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:20:45] "GET / HTTP/1.1" 200 -
+frontend-1  | 127.0.0.1 - - [15/Nov/2026 19:20:55] "GET / HTTP/1.1" 200 -
